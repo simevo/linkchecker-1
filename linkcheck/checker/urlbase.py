@@ -42,6 +42,7 @@ except ImportError:
     # Python 3
     from io import StringIO
 from builtins import str
+from six import python_2_unicode_compatible
 
 from . import absolute_url, get_url_from
 from .. import (log, LOG_CHECK,
@@ -82,6 +83,7 @@ def url_norm (url, encoding=None):
         raise LinkCheckerError(msg)
 
 
+@python_2_unicode_compatible
 class UrlBase (object):
     """An URL with additional information like validity etc."""
 
@@ -712,7 +714,7 @@ class UrlBase (object):
                 {"domain": msg}
             self.set_result(res, valid=False)
 
-    def __unicode__(self):
+    def __str__(self):
         """
         Get URL info.
 
@@ -721,7 +723,7 @@ class UrlBase (object):
         """
         return self.serialized()
 
-    def __str__(self):
+    def __bytes__(self):
         """
         Get URL info.
 

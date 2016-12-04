@@ -3,3 +3,4 @@ requests>=2.2.0
 # optional:
 argcomplete
 future
+six
