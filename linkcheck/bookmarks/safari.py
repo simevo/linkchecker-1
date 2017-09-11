@@ -83,7 +83,7 @@ def get_plist_data_from_string (data):
         return biplist.readPlistFromString(data)
     # fall back to normal plistlist
     try:
-        return plistlib.readPlistFromString(data)
+        return plistlib.readPlistFromBytes(data)
     except Exception:
         # not parseable (eg. not well-formed, or binary)
         return {}

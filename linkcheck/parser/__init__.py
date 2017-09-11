@@ -101,7 +101,7 @@ def parse_css (url_data):
 def parse_swf (url_data):
     """Parse a SWF file for URLs."""
     linkfinder = linkparse.swf_url_re.finditer
-    for mo in linkfinder(url_data.get_content()):
+    for mo in linkfinder(url_data.get_content().decode('utf-8', 'ignore')):
         url = mo.group()
         url_data.add_url(url)
 

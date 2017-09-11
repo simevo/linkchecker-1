@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 # Copyright (C) 2004-2014 Bastian Kleineidam
 #
 # This program is free software; you can redistribute it and/or modify
@@ -88,7 +88,7 @@ class TestMailGood (MailTest):
     def test_warn_mail (self):
         # some mailto addrs with warnings
         # contains non-quoted characters
-        url = u"mailto:calvin@users.sourceforge.net?subject=äöü"
+        url = u"mailto:calvin@users.sourceforge.net?subject=Ã¤Ã¶Ã¼"
         qurl = self.norm(url)
         resultlines = [
             u"url %s" % url,
@@ -145,8 +145,8 @@ class TestMailGood (MailTest):
 
     @need_network
     def test_unicode_mail (self):
-        mailto = u"mailto:ölvin@users.sourceforge.net"
-        url = self.norm(mailto, encoding="iso-8859-1")
+        mailto = u"mailto:Ã¶lvin@users.sourceforge.net"
+        url = self.norm(mailto, encoding="utf-8")
         resultlines = [
             u"url %s" % url,
             u"cache key %s" % mailto,
